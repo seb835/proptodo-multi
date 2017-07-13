@@ -58,7 +58,8 @@ export class HomePage {
       message: 'Change your mind?',
       inputs: [
         {
-          name: 'title'
+          name: 'title',
+          value: item.title
         }
       ],
       buttons: [
