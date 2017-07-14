@@ -36,17 +36,19 @@
       flex: 1;
     }
 
-    .create-account {
-      color: #222;
-      text-decoration: underline;
-      background: none;
-    }
-
     .login-button {
       width: 100%;
       border-radius: 30px;
       font-size: 0.9em;
       background-color: map-get($colors,secondary);
+      border: 1px solid #fff;
+    }
+
+    .create-account-button {
+      width: 100%;
+      border-radius: 30px;
+      font-size: 0.9em;
+      background-color: map-get($colors,primary);
       border: 1px solid #fff;
     }
 
