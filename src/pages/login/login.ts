@@ -27,7 +27,7 @@ export class LoginPage {
       password: this.password
     };
 
-    this.http.post('http://192.168.0.205:3000/auth/login', JSON.stringify(credentials), {headers: headers})
+    this.http.post('http://10.0.0.205:3000/auth/login', JSON.stringify(credentials), {headers: headers})
       .subscribe(res => {
         this.itemService.init(res.json());
         this.nav.setRoot(HomePage);
