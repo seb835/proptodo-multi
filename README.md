@@ -9,7 +9,8 @@ The Node.js server requires just two files:
 
 ### package.json
 
-`{
+```json
+{
   "name": "proptodo-auth",
   "version": "0.1.0",
   "description": "A sample Node.js app using Express 4",
@@ -30,11 +31,13 @@ The Node.js server requires just two files:
     "morgan": "^1.7.0",
     "superlogin": "^0.6.1"
   }
-}`
+}
+```
 
 ### server.js
 
-`var express = require('express');
+```javascript
+var express = require('express');
 var http = require('http');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
@@ -97,7 +100,8 @@ var superlogin = new SuperLogin(config);
 app.use('/auth',superlogin.router);
 
 app.listen(app.get('port'));
-console.log("App listening on "+app.get('port'));`
+console.log("App listening on "+app.get('port'));
+```
 
 The Node.js server must then be run using:
 
