@@ -3,7 +3,7 @@
   <ion-navbar color="secondary">
     <ion-title>Create Account</ion-title>
   </ion-navbar>
- 
+
 </ion-header>
 
 <ion-content padding>
@@ -39,7 +39,7 @@
 
       </ion-list>
 
-      <button ion-button (click)="register()" class="continue-button">Register</button>
+      <button ion-button (click)="register()" class="continue-button" [disabled]="btnRegisterDisabled">Register</button>
 
     </ion-col>
   </ion-row>

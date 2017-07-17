@@ -3,8 +3,10 @@ import { Http, Headers } from '@angular/http';
 import { NavController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
 import { ItemsProvider } from '../../providers/items/items';
+import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
 
 @Component({
   selector: 'page-signup',
@@ -17,15 +19,30 @@ export class SignupPage {
   email: string;
   password: string;
   confirmPassword: string;
+  btnRegisterDisabled: boolean = true;
+  serverIP: string;
 
   constructor(
     public nav: NavController,
     public http: Http,
     public itemService: ItemsProvider,
     public loadingCtrl: LoadingController,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    public globalVars: GlobalVarsProvider,
+    private storage: Storage
   ) {
+    // Fetch the locally stored connection data
+    storage.get('serverIP').then((val) => {
+      // Use the stored IP address if found
+      if (val) {
+        this.serverIP = val;
+      } else {
+        this.serverIP = globalVars.serverIP;
+      }
 
+      // Re-enable the button
+      this.btnRegisterDisabled = false;
+    });
   }
 
   register() {

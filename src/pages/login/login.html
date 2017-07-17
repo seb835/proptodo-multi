@@ -1,7 +1,30 @@
+<ion-menu [content]="settingsMenu">
+
+  <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="setServerIP()">
+        Change Server IP
+      </button>
+      <button ion-item (click)="closeSettingsMenu()">
+        Close Menu
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav #settingsMenu></ion-nav>
+
 <ion-content padding>
 
   <ion-row class="login-logo">
-    <ion-col><img src="assets/img/logo_main.jpg" /></ion-col>
+    <ion-col><img (click)="openSettingsMenu()" src="assets/img/logo_main.jpg" /></ion-col>
   </ion-row>
 
   <ion-row class="login-form">
@@ -20,7 +43,7 @@
 
       </ion-list>
 
-      <button ion-button (click)="login()" class="login-button">Login</button>
+      <button ion-button (click)="login()" class="login-button" [disabled]="btnLoginDisabled">Login</button>
       <button ion-button (click)="launchSignup()" class="create-account-button">Create an Account</button>
 
     </ion-col>
