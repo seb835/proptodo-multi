@@ -93,4 +93,31 @@ export class LoginPage {
     this.menuCtrl.close();
   }
 
+  settingsChangeIP() {
+    let prompt = this.alertCtrl.create({
+      title: 'Server IP Address',
+      message: "Enter an IP address for the server",
+      inputs: [
+        {
+          name: 'serverIP',
+          value: this.serverIP
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel'
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            this.storage.set('serverIP',data.serverIP).then((val) => {
+              this.serverIP = val;
+            });
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
 }

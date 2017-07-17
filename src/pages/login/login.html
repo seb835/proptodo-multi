@@ -8,12 +8,13 @@
 
   <ion-content>
     <ion-list>
-      <button ion-item (click)="setServerIP()">
+      <button ion-item (click)="settingsChangeIP()">
         Change Server IP
       </button>
       <button ion-item (click)="closeSettingsMenu()">
         Close Menu
       </button>
+      <ion-item>Current server IP: {{serverIP}}</ion-item>
     </ion-list>
   </ion-content>
 
