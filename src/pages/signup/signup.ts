@@ -63,7 +63,7 @@ export class SignupPage {
     });
     loader.present();
 
-    this.http.post('http://10.0.0.205:3000/auth/register', JSON.stringify(user), {headers: headers})
+    this.http.post('http://'+this.serverIP+':3000/auth/register', JSON.stringify(user), {headers: headers})
       .subscribe(res => {
         this.itemService.init(res.json());
         this.nav.setRoot(HomePage);
